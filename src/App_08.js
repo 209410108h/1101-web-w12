@@ -1,10 +1,10 @@
 import React from 'react';
-import T31_08 from './tutorial/3-conditional-rendering/T33_08_show-hide';
+import T33_08 from './demo/w13_slider_08/Slider_08';
 const App_08 = () => {
   return (
     <div className='container'>
       <h2>Advanced Tutorial</h2>
-      <T31_08 />
+      <T33_08 />
     </div>
   );
 };
