@@ -1,5 +1,5 @@
 import React from 'react';
-import T33_08 from './demo/w13_slider_08/Slider_08';
+import T33_08 from '../src/tutorial/4-forms/T43_08_crown2_create';
 const App_08 = () => {
   return (
     <div className='container'>
