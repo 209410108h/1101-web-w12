@@ -1,13 +1,21 @@
 import React from 'react';
-//import T33_08 from '../src/tutorial/4-forms/T43_08_crown2_create';
-import Grocery_08 from './demo/grocery/Grocery_08';
+import { Switch, Route } from 'react-router-dom';
+import ClassDemoPage_08 from './pages/ClassDemoPage_08';
+import W16_NavbarPage_08 from './pages/w16/W16_NavbarPage_08';
+
+import W14_HooksT41Page_08 from './pages/w14/W14_HooksT41Page_08';
+import W14_HooksT43Page_08 from './pages/w14/W14_HooksT43Page_08'
+
 const App_08 = () => {
   return (
-    <Grocery_08 />
-    /*<div className='container'>
-      <h2>Advanced Tutorial</h2>
-      <T33_08 />
-    </div>*/
+    <>
+      <Switch>
+        <Route exact path="/" component={ClassDemoPage_08} />
+        <Route exact path="/w14" component={W14_HooksT41Page_08} />
+        <Route exact path="/w14/T41" component={W14_HooksT41Page_08} />
+        <Route exact path="/w14/T43" component={W14_HooksT43Page_08} />
+      </Switch>
+    </>
   );
 };
 

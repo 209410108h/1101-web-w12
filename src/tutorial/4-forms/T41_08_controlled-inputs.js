@@ -6,20 +6,20 @@ import React, { useState } from 'react';
 // value, onChange
 const rootUrl = 'https://localhost:5000';
 const T41_08_ControlledInputs = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [people, setPeople] = useState([])
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [people, setPeople] = useState([])
 
 
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if(name && email) {
+        if (name && email) {
             const person = {
                 id: new Date().getTime().toString(),
                 name,
                 email
             }
-            setPeople( (people) => {
+            setPeople((people) => {
                 return [...people, person];
             });
             setName('');
@@ -28,41 +28,41 @@ const T41_08_ControlledInputs = () => {
         } else {
             console.log('empty values');
         }
-/*
-        if(!name || !email) return;
+        /*
+                if(!name || !email) return;
+        
+                const user = {name, email};
+        
+                try {
+                    const url = `${rootUrl}/crown2_xx/create`;
+                    await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(user)
+                    });
+                } catch (err){
+                    console.log(err);
+                }
+        */
+    }
 
-        const user = {name, email};
-
-        try {
-            const url = `${rootUrl}/crown2_xx/create`;
-            await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user)
-            });
-        } catch (err){
-            console.log(err);
-        }
-*/
-  }
-
-  return <>
-      <article>
+    return <>
+        <article style={{ marginTop: '30px' }}>
             <form className="form" onSubmit={handleSubmit}>
                 <div className="form-control">
                     <label htmlFor='name'>Name:</label>
-                    <input type="text" name='name' value={name} onChange={ (e) => {setName(e.target.value)}}/>
+                    <input type="text" name='name' value={name} onChange={(e) => { setName(e.target.value) }} />
                 </div>
                 <div className="form-control">
                     <label htmlFor='email'>Email:</label>
-                    <input type="email" name='email' value={email} onChange={ (e) => {setEmail(e.target.value)}} />
+                    <input type="email" name='email' value={email} onChange={(e) => { setEmail(e.target.value) }} />
                 </div>
                 <button type="submit">Add person</button>
             </form>
-            {people.map( (person) => {
-                const { id, name, email} = person;
+            {people.map((person) => {
+                const { id, name, email } = person;
                 return (
                     <div className="item" key={id}>
                         <h4>{name}</h4>
@@ -70,8 +70,8 @@ const T41_08_ControlledInputs = () => {
                     </div>
                 )
             })}
-      </article>
-      </>
+        </article>
+    </>
 };
 
 export default T41_08_ControlledInputs;
